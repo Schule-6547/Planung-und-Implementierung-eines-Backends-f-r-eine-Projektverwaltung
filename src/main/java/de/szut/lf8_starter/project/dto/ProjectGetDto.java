@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @AllArgsConstructor
 @Getter
 @Setter
@@ -13,7 +15,7 @@ public class ProjectGetDto {
 
     private String designation;
 
-    private long employee;
+    private List<Long> employees;
 
     private long customer;
 

@@ -1,9 +1,9 @@
 package de.szut.lf8_starter.project.dto;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 
 @Getter
@@ -12,7 +12,7 @@ public class ProjectCreateDto {
 
     private String designation;
 
-    private long employee;
+    private List<Long> employees;
 
     private long customer;
 

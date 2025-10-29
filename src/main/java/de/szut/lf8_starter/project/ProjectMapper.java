@@ -12,7 +12,7 @@ public class ProjectMapper {
         return new ProjectGetDto(
                 entity.getId(),
                 entity.getDesignation(),
-                entity.getEmployee(),
+                entity.getEmployees(),
                 entity.getCustomer(),
                 entity.getCustomerContactPersonName(),
                 entity.getComment(),
@@ -25,7 +25,7 @@ public class ProjectMapper {
     public ProjectEntity mapCreateDtoToEntity(ProjectCreateDto dto) {
         var entity = new ProjectEntity();
         entity.setDesignation(dto.getDesignation());
-        entity.setEmployee(dto.getEmployee());
+        entity.setEmployees(dto.getEmployees());
         entity.setCustomer(dto.getCustomer());
         entity.setCustomerContactPersonName(dto.getCustomerContactPersonName());
         entity.setComment(dto.getComment());

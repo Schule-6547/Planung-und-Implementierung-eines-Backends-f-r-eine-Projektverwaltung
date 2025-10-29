@@ -6,12 +6,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
 @Entity
-@Table(name = "hello")
+@Table(name = "project")
 public class ProjectEntity {
 
     @Id
@@ -20,7 +22,7 @@ public class ProjectEntity {
 
     private String designation;
 
-    private long employee;
+    private List<Long> employees;
 
     private long customer;
 
