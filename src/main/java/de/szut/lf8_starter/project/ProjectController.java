@@ -5,9 +5,12 @@ import de.szut.lf8_starter.exceptionHandling.ResourceNotFoundException;
 import de.szut.lf8_starter.project.dto.ProjectCreateDto;
 import de.szut.lf8_starter.project.dto.ProjectGetDto;
 import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
@@ -15,6 +18,7 @@ import java.util.stream.Collectors;
 public class ProjectController implements ProjectControllerOpenAPI {
     private final ProjectService service;
     private final ProjectMapper projectMapper;
+    private ProjectRepository repository;
 
     public ProjectController(ProjectService service, ProjectMapper mappingService) {
         this.service = service;
@@ -39,6 +43,28 @@ public class ProjectController implements ProjectControllerOpenAPI {
                 .collect(Collectors.toList());
     }
 
+    @PutMapping
+    public ResponseEntity<ProjectEntity> updateProjectById(@RequestBody ProjectEntity entryToUpdate) {
+        Long id = entryToUpdate.getId();
+        Optional<ProjectEntity> response = repository.findById(id)
+                .map(entry -> {
+                    entry.setDesignation(entryToUpdate.getDesignation());
+                    entry.setEmployees(entryToUpdate.getEmployees());
+                    entry.setCustomer(entryToUpdate.getCustomer());
+                    entry.setCustomerContactPersonName(entryToUpdate.getCustomerContactPersonName());
+                    entry.setComment(entryToUpdate.getComment());
+                    entry.setStartDateTimestamp(entryToUpdate.getStartDateTimestamp());
+                    entry.setPlannedEndDateTimestamp(entryToUpdate.getPlannedEndDateTimestamp());
+                    entry.setRealEndDateTimestamp(entryToUpdate.getRealEndDateTimestamp());
+                    return repository.save(entry);
+                });
+        if (response.isPresent()) {
+            return new ResponseEntity<>(response.get(), HttpStatus.OK);
+        }
+        else{
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        }
+    }
     @DeleteMapping("/{id}")
     public void deleteProjectById(@PathVariable long id) {
         var entity = this.service.readById(id);

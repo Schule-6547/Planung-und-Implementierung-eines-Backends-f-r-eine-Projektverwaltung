@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Date;
 import java.util.List;
 
 @NoArgsConstructor
@@ -30,10 +31,10 @@ public class ProjectEntity {
 
     private String comment;
 
-    private long startDateTimestamp;
+    private Date startDateTimestamp;
 
-    private long plannedEndDateTimestamp;
+    private Date plannedEndDateTimestamp;
 
-    private long realEndDateTimestamp;
+    private Date realEndDateTimestamp;
 }
 
