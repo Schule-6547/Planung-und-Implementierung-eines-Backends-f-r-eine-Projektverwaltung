@@ -10,11 +10,21 @@ import lombok.Setter;
 @Setter
 public class ProjectCreateDto {
 
-    @Size(min = 3, message = "at least length of 3")
-    private String message;
+    private long id;
 
-    @JsonCreator
-    public ProjectCreateDto(String message) {
-        this.message = message;
-    }
+    private String designation;
+
+    private long employee;
+
+    private long customer;
+
+    private String customerContactPersonName;
+
+    private String comment;
+
+    private long startDateTimestamp;
+
+    private long plannedEndDateTimestamp;
+
+    private long realEndDateTimestamp;
 }

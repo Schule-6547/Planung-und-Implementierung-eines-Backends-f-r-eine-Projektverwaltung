@@ -18,10 +18,20 @@ public class ProjectEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    private String message;
+    private String designation;
 
-    public ProjectEntity(String message) {
-        this.message = message;
-    }
+    private long employee;
+
+    private long customer;
+
+    private String customerContactPersonName;
+
+    private String comment;
+
+    private long startDateTimestamp;
+
+    private long plannedEndDateTimestamp;
+
+    private long realEndDateTimestamp;
 }
 

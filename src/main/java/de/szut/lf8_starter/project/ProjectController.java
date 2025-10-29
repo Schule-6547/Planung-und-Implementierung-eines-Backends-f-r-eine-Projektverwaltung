@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping(value = "/hello/")
+@RequestMapping(value = "/project/")
 public class ProjectController implements ProjectControllerOpenAPI {
     private final ProjectService service;
     private final ProjectMapper projectMapper;
@@ -23,8 +23,8 @@ public class ProjectController implements ProjectControllerOpenAPI {
 
 
     @PostMapping
-    public ProjectGetDto create(@RequestBody @Valid ProjectCreateDto helloCreateDto) {
-        ProjectEntity projectEntity = this.projectMapper.mapCreateDtoToEntity(helloCreateDto);
+    public ProjectGetDto create(@RequestBody @Valid ProjectCreateDto projectCreateDto) {
+        ProjectEntity projectEntity = this.projectMapper.mapCreateDtoToEntity(projectCreateDto);
         projectEntity = this.service.create(projectEntity);
         return this.projectMapper.mapToGetDto(projectEntity);
     }
@@ -35,27 +35,17 @@ public class ProjectController implements ProjectControllerOpenAPI {
         return this.service
                 .readAll()
                 .stream()
-                .map(e -> this.projectMapper.mapToGetDto(e))
+                .map(this.projectMapper::mapToGetDto)
                 .collect(Collectors.toList());
     }
 
     @DeleteMapping("/{id}")
-    public void deleteHelloById(@PathVariable long id) {
+    public void deleteProjectById(@PathVariable long id) {
         var entity = this.service.readById(id);
         if (entity == null) {
-            throw new ResourceNotFoundException("HelloEntity not found on id = " + id);
+            throw new ResourceNotFoundException("ProjectEntity not found on id = " + id);
         } else {
             this.service.delete(entity);
         }
-    }
-
-
-    @GetMapping("/findByMessage")
-    public List<ProjectGetDto> findAllEmployeesByQualification(@RequestParam String message) {
-        return this.service
-                .findByMessage(message)
-                .stream()
-                .map(e -> this.projectMapper.mapToGetDto(e))
-                .collect(Collectors.toList());
     }
 }

@@ -14,18 +14,18 @@ import java.util.List;
 
 public interface ProjectControllerOpenAPI {
 
-    @Operation(summary = "creates a new hello with its id and message")
+    @Operation(summary = "creates a new project")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "201", description = "created hello",
+            @ApiResponse(responseCode = "201", description = "created project",
                     content = {@Content(mediaType = "application/json",
                             schema = @Schema(implementation = ProjectGetDto.class))}),
             @ApiResponse(responseCode = "400", description = "invalid JSON posted",
                     content = @Content),
             @ApiResponse(responseCode = "401", description = "not authorized",
                     content = @Content)})
-    ProjectGetDto create(ProjectCreateDto helloCreateDto);
+    ProjectGetDto create(ProjectCreateDto projectCreateDto);
 
-    @Operation(summary = "delivers a list of hello objects")
+    @Operation(summary = "delivers a list of project objects")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "list of hellos",
                     content = {@Content(mediaType = "application/json",
@@ -34,7 +34,7 @@ public interface ProjectControllerOpenAPI {
                     content = @Content)})
     List<ProjectGetDto> findAll();
 
-    @Operation(summary = "deletes a Hello by id")
+    @Operation(summary = "deletes a project by id")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "204", description = "delete successful"),
             @ApiResponse(responseCode = "401", description = "not authorized",
@@ -42,17 +42,5 @@ public interface ProjectControllerOpenAPI {
             @ApiResponse(responseCode = "404", description = "resource not found",
                     content = @Content)})
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
-    void deleteHelloById(long id);
-
-
-    @Operation(summary = "find hellos by message")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "List of hellos who have the given message",
-                    content = {@Content(mediaType = "application/json",
-                            schema = @Schema(implementation = ProjectGetDto.class))}),
-            @ApiResponse(responseCode = "404", description = "qualification description does not exist",
-                    content = @Content),
-            @ApiResponse(responseCode = "401", description = "not authorized",
-                    content = @Content)})
-    List<ProjectGetDto> findAllEmployeesByQualification(String message);
+    void deleteProjectById(long id);
 }

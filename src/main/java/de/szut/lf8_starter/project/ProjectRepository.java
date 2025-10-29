@@ -8,5 +8,5 @@ import java.util.List;
 public interface ProjectRepository extends JpaRepository<ProjectEntity, Long> {
 
 
-    List<ProjectEntity> findByMessage(String message);
+    //List<ProjectEntity> findByMessage(String message);
 }

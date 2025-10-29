@@ -23,10 +23,7 @@ public class ProjectService {
 
     public ProjectEntity readById(long id) {
         Optional<ProjectEntity> optionalQualification = this.repository.findById(id);
-        if (optionalQualification.isEmpty()) {
-            return null;
-        }
-        return optionalQualification.get();
+        return optionalQualification.orElse(null);
     }
 
 
@@ -34,7 +31,7 @@ public class ProjectService {
         this.repository.delete(entity);
     }
 
-    public List<ProjectEntity> findByMessage(String message) {
+/*    public List<ProjectEntity> findByMessage(String message) {
         return this.repository.findByMessage(message);
-    }
+    }*/
 }
