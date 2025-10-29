@@ -24,7 +24,6 @@ public class ProjectMapper {
 
     public ProjectEntity mapCreateDtoToEntity(ProjectCreateDto dto) {
         var entity = new ProjectEntity();
-        entity.setId(dto.getId());
         entity.setDesignation(dto.getDesignation());
         entity.setEmployee(dto.getEmployee());
         entity.setCustomer(dto.getCustomer());

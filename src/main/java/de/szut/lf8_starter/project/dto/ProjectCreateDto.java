@@ -10,8 +10,6 @@ import lombok.Setter;
 @Setter
 public class ProjectCreateDto {
 
-    private long id;
-
     private String designation;
 
     private long employee;
