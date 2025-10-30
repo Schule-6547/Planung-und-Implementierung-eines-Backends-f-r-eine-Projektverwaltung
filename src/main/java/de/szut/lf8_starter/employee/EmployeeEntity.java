@@ -20,20 +20,8 @@ public class EmployeeEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    private String designation;
+    private String firstname;
 
-    private List<Long> employees;
-
-    private long customer;
-
-    private String customerContactPersonName;
-
-    private String comment;
-
-    private long startDateTimestamp;
-
-    private long plannedEndDateTimestamp;
-
-    private long realEndDateTimestamp;
+    private String lastname;
 }
 

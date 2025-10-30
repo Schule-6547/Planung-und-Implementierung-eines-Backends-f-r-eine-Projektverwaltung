@@ -11,27 +11,15 @@ public class EmployeeMapper {
     public EmployeeGetDto mapToGetDto(EmployeeEntity entity) {
         return new EmployeeGetDto(
                 entity.getId(),
-                entity.getDesignation(),
-                entity.getEmployees(),
-                entity.getCustomer(),
-                entity.getCustomerContactPersonName(),
-                entity.getComment(),
-                entity.getStartDateTimestamp(),
-                entity.getPlannedEndDateTimestamp(),
-                entity.getRealEndDateTimestamp()
+                entity.getFirstname(),
+                entity.getLastname()
         );
     }
 
     public EmployeeEntity mapCreateDtoToEntity(EmployeeCreateDto dto) {
         var entity = new EmployeeEntity();
-        entity.setDesignation(dto.getDesignation());
-        entity.setEmployees(dto.getEmployees());
-        entity.setCustomer(dto.getCustomer());
-        entity.setCustomerContactPersonName(dto.getCustomerContactPersonName());
-        entity.setComment(dto.getComment());
-        entity.setStartDateTimestamp(dto.getStartDateTimestamp());
-        entity.setPlannedEndDateTimestamp(dto.getPlannedEndDateTimestamp());
-        entity.setRealEndDateTimestamp(dto.getRealEndDateTimestamp());
+        entity.setFirstname(dto.getFirstname());
+        entity.setLastname(dto.getLastname());
         return entity;
     }
 }
