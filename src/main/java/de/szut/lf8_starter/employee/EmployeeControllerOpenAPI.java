@@ -27,7 +27,7 @@ public interface EmployeeControllerOpenAPI {
 
     @Operation(summary = "delivers a list of employee objects")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "list of hellos",
+            @ApiResponse(responseCode = "200", description = "list of employees",
                     content = {@Content(mediaType = "application/json",
                             array = @ArraySchema(schema = @Schema(implementation = EmployeeGetDto.class)))}),
             @ApiResponse(responseCode = "401", description = "not authorized",
