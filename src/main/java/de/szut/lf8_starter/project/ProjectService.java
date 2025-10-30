@@ -43,6 +43,11 @@ public class ProjectService {
         }
     }
 
+    public void unassignEmployeeToProject(ProjectEntity project, EmployeeEntity employee) {
+        project.getEmployees().remove(employee);
+        repository.save(project);
+    }
+
     private boolean isAvailableInPeriod(LocalDateTime start, LocalDateTime end, EmployeeEntity employee) {
         return readAll().stream().noneMatch(project -> {
             if (project.getStartDate() == null || project.getPlannedEndDate() == null) return false;

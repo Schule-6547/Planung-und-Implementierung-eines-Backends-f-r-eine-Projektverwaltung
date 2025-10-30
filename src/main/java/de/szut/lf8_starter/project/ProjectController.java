@@ -80,4 +80,9 @@ public class ProjectController implements ProjectControllerOpenAPI {
     public void assignEmployeeToProject(ProjectEntity project, EmployeeEntity employee) {
         service.assignEmployeeToProject(project, employee);
     }
+
+    @PutMapping("/unassignEmployee")
+    public void unassignEmployeeToProject(ProjectEntity project, EmployeeEntity employee) {
+        service.unassignEmployeeToProject(project, employee);
+    }
 }
