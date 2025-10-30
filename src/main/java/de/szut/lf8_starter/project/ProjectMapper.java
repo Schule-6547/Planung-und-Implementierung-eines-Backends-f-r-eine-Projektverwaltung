@@ -16,9 +16,9 @@ public class ProjectMapper {
                 entity.getCustomer(),
                 entity.getCustomerContactPersonName(),
                 entity.getComment(),
-                entity.getStartDateTimestamp(),
-                entity.getPlannedEndDateTimestamp(),
-                entity.getRealEndDateTimestamp()
+                entity.getStartDate(),
+                entity.getPlannedEndDate(),
+                entity.getRealEndDate()
         );
     }
 
@@ -29,9 +29,9 @@ public class ProjectMapper {
         entity.setCustomer(dto.getCustomer());
         entity.setCustomerContactPersonName(dto.getCustomerContactPersonName());
         entity.setComment(dto.getComment());
-        entity.setStartDateTimestamp(dto.getStartDateTimestamp());
-        entity.setPlannedEndDateTimestamp(dto.getPlannedEndDateTimestamp());
-        entity.setRealEndDateTimestamp(dto.getRealEndDateTimestamp());
+        entity.setStartDate(dto.getStartDate());
+        entity.setPlannedEndDate(dto.getPlannedEndDate());
+        entity.setRealEndDate(dto.getRealEndDate());
         return entity;
     }
 }

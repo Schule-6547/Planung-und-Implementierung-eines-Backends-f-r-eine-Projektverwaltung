@@ -1,6 +1,7 @@
 package de.szut.lf8_starter.project;
 
 
+import de.szut.lf8_starter.employee.EmployeeEntity;
 import de.szut.lf8_starter.exceptionHandling.ResourceNotFoundException;
 import de.szut.lf8_starter.project.dto.ProjectCreateDto;
 import de.szut.lf8_starter.project.dto.ProjectGetDto;
@@ -53,9 +54,9 @@ public class ProjectController implements ProjectControllerOpenAPI {
                     entry.setCustomer(entryToUpdate.getCustomer());
                     entry.setCustomerContactPersonName(entryToUpdate.getCustomerContactPersonName());
                     entry.setComment(entryToUpdate.getComment());
-                    entry.setStartDateTimestamp(entryToUpdate.getStartDateTimestamp());
-                    entry.setPlannedEndDateTimestamp(entryToUpdate.getPlannedEndDateTimestamp());
-                    entry.setRealEndDateTimestamp(entryToUpdate.getRealEndDateTimestamp());
+                    entry.setStartDate(entryToUpdate.getStartDate());
+                    entry.setPlannedEndDate(entryToUpdate.getPlannedEndDate());
+                    entry.setRealEndDate(entryToUpdate.getRealEndDate());
                     return repository.save(entry);
                 });
         if (response.isPresent()) {
@@ -73,5 +74,10 @@ public class ProjectController implements ProjectControllerOpenAPI {
         } else {
             this.service.delete(entity);
         }
+    }
+
+    @PutMapping("/assignEmployee")
+    public void assignEmployeeToProject(ProjectEntity project, EmployeeEntity employee) {
+        service.assignEmployeeToProject(project, employee);
     }
 }

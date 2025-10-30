@@ -1,8 +1,10 @@
 package de.szut.lf8_starter.project.dto;
 
+import de.szut.lf8_starter.employee.EmployeeEntity;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 
@@ -12,7 +14,7 @@ public class ProjectCreateDto {
 
     private String designation;
 
-    private List<Long> employees;
+    private List<EmployeeEntity> employees;
 
     private long customer;
 
@@ -20,9 +22,9 @@ public class ProjectCreateDto {
 
     private String comment;
 
-    private long startDateTimestamp;
+    private LocalDateTime startDate;
 
-    private long plannedEndDateTimestamp;
+    private LocalDateTime plannedEndDate;
 
-    private long realEndDateTimestamp;
+    private LocalDateTime realEndDate;
 }

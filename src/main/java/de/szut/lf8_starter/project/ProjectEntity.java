@@ -1,11 +1,13 @@
 package de.szut.lf8_starter.project;
 
+import de.szut.lf8_starter.employee.EmployeeEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -23,7 +25,7 @@ public class ProjectEntity {
 
     private String designation;
 
-    private List<Long> employees;
+    private List<EmployeeEntity> employees;
 
     private long customer;
 
@@ -31,10 +33,10 @@ public class ProjectEntity {
 
     private String comment;
 
-    private Date startDateTimestamp;
+    private LocalDateTime startDate;
 
-    private Date plannedEndDateTimestamp;
+    private LocalDateTime plannedEndDate;
 
-    private Date realEndDateTimestamp;
+    private LocalDateTime realEndDate;
 }
 
