@@ -31,5 +31,6 @@ public class ProjectGetDto {
 
     private LocalDateTime realEndDate;
 
+    private String requiredSkill;
 }
 

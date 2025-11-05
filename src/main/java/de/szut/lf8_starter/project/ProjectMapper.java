@@ -18,7 +18,8 @@ public class ProjectMapper {
                 entity.getComment(),
                 entity.getStartDate(),
                 entity.getPlannedEndDate(),
-                entity.getRealEndDate()
+                entity.getRealEndDate(),
+                entity.getRequiredSkill()
         );
     }
 
@@ -32,6 +33,7 @@ public class ProjectMapper {
         entity.setStartDate(dto.getStartDate());
         entity.setPlannedEndDate(dto.getPlannedEndDate());
         entity.setRealEndDate(dto.getRealEndDate());
+        entity.setRequiredSkill(dto.getRequiredSkill());
         return entity;
     }
 }
