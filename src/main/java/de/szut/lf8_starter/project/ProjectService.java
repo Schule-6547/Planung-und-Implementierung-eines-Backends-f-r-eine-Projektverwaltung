@@ -45,9 +45,10 @@ public class ProjectService {
         existing.setCustomer(entity.getCustomer());
         existing.setCustomerContactPersonName(entity.getCustomerContactPersonName());
         existing.setComment(entity.getComment());
-        existing.setStartDateTimestamp(entity.getStartDateTimestamp());
-        existing.setPlannedEndDateTimestamp(entity.getPlannedEndDateTimestamp());
-        existing.setRealEndDateTimestamp(entity.getRealEndDateTimestamp());
+        existing.setStartDate(entity.getStartDate());
+        existing.setPlannedEndDate(entity.getPlannedEndDate());
+        existing.setRealEndDate(entity.getRealEndDate());
+        existing.setRequiredSkill(entity.getRequiredSkill());
         return repository.save(existing);
     }
     public void delete(ProjectEntity entity) {
@@ -60,7 +61,8 @@ public class ProjectService {
         }
         String requiredSkill = entity.getRequiredSkill();
         if (entity.getEmployees() != null) {
-            for (Long workerId : entity.getEmployees()) {
+            for (EmployeeEntity worker : entity.getEmployees()) {
+                Long workerId = worker.getId();
                 if (workerId == null) continue;
                 if (!employeeApiClient.existsEmployeeById(workerId)) {
                     throw new ResourceNotFoundException("Employee id not found: " + workerId);

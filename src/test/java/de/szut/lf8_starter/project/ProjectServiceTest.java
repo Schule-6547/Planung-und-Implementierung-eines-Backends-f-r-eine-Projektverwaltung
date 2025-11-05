@@ -15,7 +15,7 @@ public class ProjectServiceTest {
     @Test
     public void unassignEmployeeToProjectTest() {
         ProjectRepository projectRepository = mock(ProjectRepository.class);
-        ProjectService service = new ProjectService(projectRepository);
+        ProjectService service = new ProjectService(projectRepository, mock(EmployeeApiClient.class));
 
         ProjectEntity project = mock(ProjectEntity.class);
         EmployeeEntity employee = mock(EmployeeEntity.class);
