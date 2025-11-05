@@ -38,5 +38,8 @@ public class ProjectEntity {
     private LocalDateTime plannedEndDate;
 
     private LocalDateTime realEndDate;
+
+    @Column(name = "required_skill")
+    private String requiredSkill;
 }
 

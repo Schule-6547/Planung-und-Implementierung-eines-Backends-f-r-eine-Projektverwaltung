@@ -27,4 +27,6 @@ public class ProjectCreateDto {
     private LocalDateTime plannedEndDate;
 
     private LocalDateTime realEndDate;
+
+    private String requiredSkill;
 }

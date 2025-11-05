@@ -66,6 +66,15 @@ public class ProjectController implements ProjectControllerOpenAPI {
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
         }
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<ProjectGetDto> update(@PathVariable Long id, @RequestBody ProjectCreateDto dto) {
+        ProjectEntity entity = this.projectMapper.mapCreateDtoToEntity(dto);
+        entity.setId(id);
+        ProjectEntity updated = this.service.update(entity);
+        return ResponseEntity.ok(this.projectMapper.mapToGetDto(updated));
+    }
+
     @DeleteMapping("/{id}")
     public void deleteProjectById(@PathVariable long id) {
         var entity = this.service.readById(id);
