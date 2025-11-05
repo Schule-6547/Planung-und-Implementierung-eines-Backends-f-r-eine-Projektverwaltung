@@ -25,6 +25,7 @@ public class ProjectEntity {
 
     private String designation;
 
+    @OneToMany
     private List<EmployeeEntity> employees;
 
     private long customer;
